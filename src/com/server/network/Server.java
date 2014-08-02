@@ -42,10 +42,6 @@ public class Server {
 		}	
 	}
 	
-	public void respondClient(Socket client, String message) {
-		//TODO : Send the response to the client ,close the socket, update num of connections
-	}
-
 	public static void main(String[] args) {
 		Server srv = Server.getInstance();
 		if (args.length > 1) {
@@ -57,27 +53,23 @@ public class Server {
 		srv.init();
 	}
 
-	public int getServerPort() {
-		return serverPort;
-	}
-
-	public void setServerPort(int serverPort) {
+	private void setServerPort(int serverPort) {
 		this.serverPort = serverPort;
 	}
 
-	public int getNumConnections() {
+	private int getNumConnections() {
 		return numConnections;
 	}
 
-	public void setNumConnections(int numConnections) {
+	private void setNumConnections(int numConnections) {
 		this.numConnections = numConnections;
 	}
 	
-	private void incrementConnections() {
+	public void incrementConnections() {
 		setNumConnections(getNumConnections() + 1);
 	}
 	
-	private void decrementConnections() {
+	public void decrementConnections() {
 		setNumConnections(getNumConnections() - 1);
 	}
 
